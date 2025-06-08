@@ -1,7 +1,7 @@
 const express = require('express');
 const { exec } = require('child_process');
 module.exports = function(app) {
-app.get('/api/ytmp', async (req, res) => {
+app.get('/ytmp', async (req, res) => {
   const url = req.query.url;
   if (!url || !url.includes('youtube.com') && !url.includes('youtu.be')) {
     return res.status(400).json({ status: false, message: 'URL YouTube tidak valid' });
