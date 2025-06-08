@@ -80,11 +80,7 @@
           "name": "YouTube",
           "desc": "Video search",
           "path": "/search/youtube?q="
-        },
-        {
-          "name": "Pinterest",
-          "desc": "Pinterest Search",
-          "path": "/search/pinterest?q="
+        }
         }
       ]
     }
