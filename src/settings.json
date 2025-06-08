@@ -62,14 +62,9 @@
           "path": "/download/tiktok?url="
         },
         {
-          "name": "Ytmp3",
-          "desc": "Ytmp3 Download",
-          "path": "/ytmp3?url="
-        },
-        {
-          "name": "Ytmp4",
-          "desc": "Ytmp4 Download",
-          "path": "/ytmp4?url="
+          "name": "Ytmp",
+          "desc": "Ytmp Download",
+          "path": "/ytmp?url="
         }
       ]
     },
