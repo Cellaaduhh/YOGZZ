@@ -1,6 +1,6 @@
 {
-  "name": "Rynn Api's",
-  "version": "Rynn UI",
+  "name": "Yogzz Api's",
+  "version": "Yogzz",
   "description": "Simple and Easy-to-Use API Documentation",
   "header": {
     "status": "Online!",
@@ -14,7 +14,7 @@
     }
   },
   "apiSettings": {
-    "creator": "Rynn"
+    "creator": "Yogzz"
   },
   "links": [
     {
@@ -23,12 +23,12 @@
     },
     {
       "name": "Contact Me",
-      "url": "https://wa.me/6285173370004"
+      "url": "https://wa.me/62882007138253"
     }
   ],
   "categories": [
     {
-      "name": "AI (Artificial Intelligence)",
+      "name": "AI",
       "items": [
         {
           "name": "LuminAI",
@@ -54,12 +54,37 @@
       ]
     },
     {
+      "name": "Download",
+      "items": [
+        {
+          "name": "Tiktok",
+          "desc": "Tiktok Download",
+          "path": "/download/tiktok?url="
+        },
+        {
+          "name": "Ytmp3",
+          "desc": "Ytmp3 Download",
+          "path": "/ytmp3?url="
+        },
+        {
+          "name": "Ytmp4",
+          "desc": "Ytmp4 Download",
+          "path": "/ytmp4?url="
+        }
+      ]
+    },
+    {
       "name": "Search Tools",
       "items": [
         {
           "name": "YouTube",
           "desc": "Video search",
           "path": "/search/youtube?q="
+        },
+        {
+          "name": "Pinterest",
+          "desc": "Pinterest Search",
+          "path": "/search/pinterest?q="
         }
       ]
     }
