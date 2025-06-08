@@ -1,36 +1,33 @@
-const express = require('express');
-const { exec } = require('child_process');
+const ytdl = require('ytdl-core');
+
 module.exports = function(app) {
-app.get('/ytmp', async (req, res) => {
-  const url = req.query.url;
-  if (!url || !url.includes('youtube.com') && !url.includes('youtu.be')) {
-    return res.status(400).json({ status: false, message: 'URL YouTube tidak valid' });
-  }
+  app.get('/ytmp', async (req, res) => {
+    const { url } = req.query;
+    if (!url || !ytdl.validateURL(url)) {
+      return res.status(400).json({ status: false, error: 'Invalid or missing YouTube URL' });
+    }
 
-  try {
-    const cmd = `yt-dlp -j --no-playlist "${url}"`;
-    exec(cmd, (err, stdout) => {
-      if (err) return res.status(500).json({ status: false, message: 'Gagal mendapatkan data video' });
+    try {
+      const info = await ytdl.getInfo(url);
+      const title = info.videoDetails.title;
+      const thumbnail = info.videoDetails.thumbnails.pop().url;
 
-      const data = JSON.parse(stdout);
-      const title = data.title;
-      const thumbnail = data.thumbnail;
-      const duration = data.duration;
-
-      const mp3 = `https://ytdl.m4a.download/api/button/mp3/${data.id}`;
-      const mp4 = `https://ytdl.m4a.download/api/button/mp4/${data.id}`;
+      // Pilih format mp4 (video + audio)
+      const mp4Format = ytdl.chooseFormat(info.formats, { quality: '18', filter: 'audioandvideo' });
+      // Pilih format audio saja (biasanya webm/opus)
+      const audioFormat = ytdl.chooseFormat(info.formats, { quality: 'highestaudio', filter: 'audioonly' });
 
       res.json({
         status: true,
-        title,
-        duration,
-        thumbnail,
-        mp3,
-        mp4
+        result: {
+          title,
+          thumbnail,
+          mp4: mp4Format.url,
+          audio: audioFormat.url,
+        }
       });
-    });
-  } catch (e) {
-    res.status(500).json({ status: false, message: 'Terjadi kesalahan internal' });
-  }
-});
-};
+    } catch (error) {
+      res.status(500).json({ status: false, error: error.message });
+    }
+  });
+}
