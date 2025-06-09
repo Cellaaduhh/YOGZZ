@@ -18,11 +18,11 @@
   },
   "links": [
     {
-      "name": "Source Code",
-      "url": "https://github.com/rynxzyy/Rynn-UI"
+      "name": "Telegram",
+      "url": "https://t.me/yogzznew"
     },
     {
-      "name": "Contact Me",
+      "name": "Contact",
       "url": "https://wa.me/62882007138253"
     }
   ],
@@ -50,7 +50,11 @@
           "name": "Blue Archive",
           "desc": "Blue Archive Random Images",
           "path": "/random/ba"
-        }
+        },
+        {
+          "name": "Nsfw",
+          "desc": "Nsfw Random Images",
+          "path": "/api/nsfw"
       ]
     },
     {
