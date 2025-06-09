@@ -2,9 +2,9 @@ const axios = require('axios');
 
 module.exports = function(app) {
   app.get('/api/tiktok/search', async (req, res) => {
-    const { query } = req.query;
+    const { q } = req.query;
 
-    if (!query) {
+    if (!q) {
       return res.status(400).json({ error: "Query parameter is required." });
     }
 
@@ -16,7 +16,7 @@ module.exports = function(app) {
     }
   });
 
-  async function tiktokSearchVideo(query) {
+  async function tiktokSearchVideo(q) {
     try {
       const response = await axios("https://tikwm.com/api/feed/search", {
         method: "POST",
@@ -28,7 +28,7 @@ module.exports = function(app) {
           'Referer': 'https://www.tikwm.com/',
         },
         data: new URLSearchParams({
-          keywords: query,
+          keywords: q,
           count: 12,
           cursor: 0,
           web: 1,
