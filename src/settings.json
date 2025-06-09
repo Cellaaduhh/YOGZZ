@@ -36,11 +36,6 @@
           "path": "/ai/luminai?text="
         },
         {
-          "name": "YogzzGpt",
-          "desc": "Talk with YogzzGpt",
-          "path": "/api/ai?text="
-        },
-        {
           "name": "HydroMind",
           "desc": "Talk with hydromind",
           "path": "/ai/hydromind?text=&model=",
