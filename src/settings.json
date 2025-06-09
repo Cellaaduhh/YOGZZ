@@ -74,7 +74,12 @@
         {
           "name": "Tiktok",
           "desc": "Tiktok Search",
-          "path": "/api/tiktok/search?query="
+          "path": "/api/tiktok/search?q="
+        },
+        {
+          "name": "Spotify",
+          "desc": "Spotify Search",
+          "path": "/api/spotify/search?q="
         }
       ]
     }
