@@ -55,6 +55,7 @@
           "name": "Nsfw",
           "desc": "Nsfw Random Images",
           "path": "/api/nsfw"
+        }
       ]
     },
     {
