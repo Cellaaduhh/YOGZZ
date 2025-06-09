@@ -72,8 +72,8 @@
           "path": "/search/youtube?q="
         },
         {
-          "name": "Pinterest",
-          "desc": "pinterest Download",
+          "name": "Tiktok",
+          "desc": "Tiktok Search",
           "path": "/api/tiktok/search?query="
         }
       ]
