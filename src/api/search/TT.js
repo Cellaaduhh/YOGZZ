@@ -5,18 +5,18 @@ module.exports = function(app) {
     const { q } = req.query;
 
     if (!q) {
-      return res.status(400).json({ error: "Query parameter is required." });
+      return res.status(400).json({ error: "Query parameter 'q' is required." });
     }
 
     try {
-      const results = await tiktokSearchVideo(query);
+      const results = await tiktokSearchVideo(q);
       res.json({ success: true, data: results });
     } catch (err) {
       res.status(500).json({ success: false, error: err.message });
     }
   });
 
-  async function tiktokSearchVideo(q) {
+  async function tiktokSearchVideo(keyword) {
     try {
       const response = await axios("https://tikwm.com/api/feed/search", {
         method: "POST",
@@ -28,7 +28,7 @@ module.exports = function(app) {
           'Referer': 'https://www.tikwm.com/',
         },
         data: new URLSearchParams({
-          keywords: q,
+          keywords: keyword,
           count: 12,
           cursor: 0,
           web: 1,
