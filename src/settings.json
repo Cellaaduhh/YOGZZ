@@ -65,6 +65,11 @@
           "name": "Spotify",
           "desc": "Spotify Download",
           "path": "/api/spotify/download?url="
+        },
+        {
+          "name": "Youtube",
+          "desc": "Youtube Download",
+          "path": "/api/ytdl?url="
         }
       ]
     },
