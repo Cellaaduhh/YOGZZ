@@ -38,7 +38,7 @@
         {
           "name": "YogzzGpt",
           "desc": "Talk with YogzzGpt",
-          "path": "/api/prompt?text="
+          "path": "/api/ai?text="
         },
         {
           "name": "HydroMind",
