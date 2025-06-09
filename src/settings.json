@@ -36,6 +36,11 @@
           "path": "/ai/luminai?text="
         },
         {
+          "name": "YogzzGpt",
+          "desc": "Talk with YogzzGpt",
+          "path": "/api/prompt?text="
+        },
+        {
           "name": "HydroMind",
           "desc": "Talk with hydromind",
           "path": "/ai/hydromind?text=&model=",
@@ -50,11 +55,6 @@
           "name": "Blue Archive",
           "desc": "Blue Archive Random Images",
           "path": "/random/ba"
-        },
-        {
-          "name": "Nsfw",
-          "desc": "Nsfw Random Images",
-          "path": "/api/nsfw"
         }
       ]
     },
