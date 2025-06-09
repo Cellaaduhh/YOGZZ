@@ -61,4 +61,5 @@ async function pinterest2(query) {
 			reject([]);
 		}
 	});
-}
+};
+};
