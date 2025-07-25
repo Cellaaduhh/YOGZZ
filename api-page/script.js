@@ -56,57 +56,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-const apiContent = await Promise.all(Object.keys(groupedData).map(async (category) => {
-    const items = groupedData[category];
-    const sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
-
-    const categoryContent = await Promise.all(sortedItems.map(async (item, index, array) => {
-        const isLastItem = index === array.length - 1;
-        const itemClass = `col-md-6 col-lg-4 api-item ${isLastItem ? 'mb-4' : 'mb-2'}`;
-
-        let statusLabel = '<i class="fas fa-code"></i> GET';
-        let btnClass = 'btn-dark';
-        let statusBadge = '<span class="badge bg-success ms-2">Online</span>';
-
-        // Cek status API
-        try {
-            const res = await fetch(item.path, { method: 'GET' });
-            if (!res.ok) throw new Error('Offline');
-        } catch (e) {
-            statusLabel = '<i class="fas fa-times-circle"></i> OFFLINE';
-            btnClass = 'btn-secondary disabled';
-            statusBadge = '<span class="badge bg-danger ms-2">Offline</span>';
-        }
-
-        return `
-            <div class="${itemClass}" data-name="${item.name}" data-desc="${item.desc}">
-                <div class="hero-section d-flex align-items-center justify-content-between" style="height: 70px;">
-                    <div>
-                        <h5 class="mb-0" style="font-size: 18px;">
-                            ${item.name} ${statusBadge}
-                        </h5>
-                        <p class="text-muted mb-0">${item.desc}</p>
+        const apiContent = document.getElementById('apiContent');
+        settings.categories.forEach((category) => {
+            const sortedItems = category.items.sort((a, b) => a.name.localeCompare(b.name));
+            const categoryContent = sortedItems.map((item, index, array) => {
+                const isLastItem = index === array.length - 1;
+                const itemClass = `col-md-6 col-lg-4 api-item ${isLastItem ? 'mb-4' : 'mb-2'}`;
+                return `
+                    <div class="${itemClass}" data-name="${item.name}" data-desc="${item.desc}">
+                        <div class="hero-section d-flex align-items-center justify-content-between" style="height: 70px;">
+                            <div>
+                                <h5 class="mb-0" style="font-size: 18px;">${item.name}</h5>
+                                <p class="text-muted mb-0" style="font-size: 0.8rem;">${item.desc}</p>
+                            </div>
+                            <button class="btn btn-dark btn-sm get-api-btn" data-api-path="${item.path}" data-api-name="${item.name}" data-api-desc="${item.desc}">
+                                GET
+                            </button>
+                        </div>
                     </div>
-                    <button class="btn ${btnClass}" data-path="${item.path.replace(/'/g, "\\'")}"
-                        onclick="openApiModal('${item.name.replace(/'/g, "\\'")}', '${item.path.replace(/'/g, "\\'")}', '${item.desc.replace(/'/g, "\\'")}')">
-                        ${statusLabel}
-                    </button>
-                </div>
-            </div>
-        `;
-    }));
-
-    return `
-        <div class="mb-4">
-            <h4 class="mb-3">${category}</h4>
-            <div class="row">
-                ${categoryContent.join('')}
-            </div>
-        </div>
-    `;
-}));
-
-document.getElementById('apiLinks').innerHTML = apiContent.join('');
+                `;
+            }).join('');
+            apiContent.insertAdjacentHTML('beforeend', `<h3 class="mb-3 category-header" style="font-size: 22px;">${category.name}</h3><div class="row">${categoryContent}</div>`);
+        });
 
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', () => {
