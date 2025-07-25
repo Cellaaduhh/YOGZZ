@@ -1,5 +1,3 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-
 body {
     font-family: 'Poppins', sans-serif;
     color: #4B4B4B;
@@ -144,6 +142,27 @@ body.no-scroll {
     width: 70%;
 }
 
+.api-status {
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.api-status i {
+    font-size: 14px;
+}
+
+/* OFFLINE */
+.api-status.offline {
+    color: #dc3545;
+}
+
+/* ONLINE (GET) */
+.api-status.online {
+    color: #28a745;
+}
+
 .hero-section .text-muted {
     font-size: 0.8rem;
     overflow: hidden;
@@ -165,28 +184,6 @@ body.no-scroll {
     border: none;
     border-radius: 8px;
     padding: 8px 20px;
-}
-
-/* Tambahan untuk ikon status API */
-.api-status {
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.api-status i {
-    font-size: 14px;
-}
-
-/* OFFLINE */
-.api-status.offline {
-    color: #dc3545;
-}
-
-/* ONLINE (GET) */
-.api-status.online {
-    color: #28a745;
 }
 
 .form-control.is-invalid {
