@@ -142,27 +142,6 @@ body.no-scroll {
     width: 70%;
 }
 
-.api-status {
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.api-status i {
-    font-size: 14px;
-}
-
-/* OFFLINE */
-.api-status.offline {
-    color: #dc3545;
-}
-
-/* ONLINE (GET) */
-.api-status.online {
-    color: #28a745;
-}
-
 .hero-section .text-muted {
     font-size: 0.8rem;
     overflow: hidden;
