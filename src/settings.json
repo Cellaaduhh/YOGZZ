@@ -40,6 +40,10 @@
           "desc": "Talk with hydromind",
           "path": "/ai/hydromind?text=&model=",
           "innerDesc": "See the list of supported AI models here: https://mind.hydrooo.web.id"
+        },
+          "name": "Gpt 4.1",
+          "desc": "Talk with GPT-4.1. Bisa memahami gambar dan lanjutkan percakapan.",
+          "path": "/ai/gpt-4.1?text=&imageUrl=",
         }
       ]
     },
