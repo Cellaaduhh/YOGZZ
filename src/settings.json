@@ -38,8 +38,7 @@
         {
           "name": "Gpt-4.1",
           "desc": "version 4.1",
-          "path": "/ai/Gpt-4.1?text=&imageUrl=",
-          "innerDesc": "See the list of supported AI models here: https://mind.hydrooo.web.id"
+          "path": "/ai/Gpt-4.1?text=&imageUrl="
         }
       ]
     },
