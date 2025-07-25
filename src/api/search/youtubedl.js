@@ -76,7 +76,7 @@ const ssyoutube = {
 };
 
 // Endpoint GET /api/ssyoutube?url=link_youtube
-app.get('/download/youtube', async (req, res) => {
+app.get('/download/youtubedl', async (req, res) => {
   const { url } = req.query;
 
   if (!url) {
