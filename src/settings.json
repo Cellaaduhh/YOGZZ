@@ -1,6 +1,6 @@
 {
-  "name": "Yogzz Api's",
-  "version": "Yogzz",
+  "name": "cella Api's",
+  "version": "cella",
   "description": "Simple and Easy-to-Use API Documentation",
   "header": {
     "status": "Online!",
@@ -14,16 +14,16 @@
     }
   },
   "apiSettings": {
-    "creator": "Yogzz"
+    "creator": "cella"
   },
   "links": [
     {
       "name": "Telegram",
-      "url": "https://t.me/yogzznew"
+      "url": "https://t.me/rugibangeg"
     },
     {
       "name": "Contact",
-      "url": "https://wa.me/62882007138253"
+      "url": "https://wa.me/6282241053316"
     }
   ],
   "categories": [
