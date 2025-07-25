@@ -68,11 +68,11 @@ const apiContent = await Promise.all(Object.keys(groupedData).map(async (categor
         let btnClass = 'btn-dark';
         let statusBadge = '<span class="badge bg-success ms-2">Online</span>';
 
-        // Cek apakah API hidup
+        // Cek status API
         try {
-            const res = await fetch(item.path);
-            if (!res.ok) throw new Error();
-        } catch {
+            const res = await fetch(item.path, { method: 'GET' });
+            if (!res.ok) throw new Error('Offline');
+        } catch (e) {
             statusLabel = '<i class="fas fa-times-circle"></i> OFFLINE';
             btnClass = 'btn-secondary disabled';
             statusBadge = '<span class="badge bg-danger ms-2">Offline</span>';
@@ -87,7 +87,8 @@ const apiContent = await Promise.all(Object.keys(groupedData).map(async (categor
                         </h5>
                         <p class="text-muted mb-0">${item.desc}</p>
                     </div>
-                    <button class="btn ${btnClass}" data-path="${item.path}" onclick="openApiModal('${item.name}', '${item.path}', '${item.desc}')">
+                    <button class="btn ${btnClass}" data-path="${item.path.replace(/'/g, "\\'")}"
+                        onclick="openApiModal('${item.name.replace(/'/g, "\\'")}', '${item.path.replace(/'/g, "\\'")}', '${item.desc.replace(/'/g, "\\'")}')">
                         ${statusLabel}
                     </button>
                 </div>
@@ -106,8 +107,6 @@ const apiContent = await Promise.all(Object.keys(groupedData).map(async (categor
 }));
 
 document.getElementById('apiLinks').innerHTML = apiContent.join('');
-
-
 
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', () => {
