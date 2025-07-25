@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.addEventListener('resize', setImageSize);
         }
         
-        setContent('page', 'textContent', settings.name || "Yogzz");
-        setContent('header', 'textContent', settings.name || "Yogzz");
-        setContent('name', 'textContent', settings.name || "Yogzz");
-        setContent('version', 'textContent', settings.version || "v1.0 Beta");
+        setContent('page', 'textContent', settings.name || "cella");
+        setContent('header', 'textContent', settings.name || "cella");
+        setContent('name', 'textContent', settings.name || "cella");
+        setContent('version', 'textContent', settings.version || "v1.5 Beta");
         setContent('versionHeader', 'textContent', settings.header.status || "Online!");
         setContent('description', 'textContent', settings.description || "Simple API's");
 
